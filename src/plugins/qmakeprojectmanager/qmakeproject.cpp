@@ -739,10 +739,12 @@ Tasks QmakeProject::projectIssues(const Kit *k) const
 {
     Tasks result = Project::projectIssues(k);
     const QtSupport::QtVersion *const qtFromKit = QtSupport::QtKitAspect::qtVersion(k);
-    if (!qtFromKit)
+    if (!qtFromKit) {
         result.append(createProjectTask(Task::TaskType::Error, tr("No Qt version set in kit.")));
-    else if (!qtFromKit->isValid())
+        return result;
+    } else if (!qtFromKit->isValid()) {
         result.append(createProjectTask(Task::TaskType::Error, tr("Qt version is invalid.")));
+    }
     if (!ToolChainKitAspect::cxxToolChain(k))
         result.append(createProjectTask(Task::TaskType::Error, tr("No C++ compiler set in kit.")));
 
