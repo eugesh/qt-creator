@@ -1798,7 +1798,8 @@ static QByteArray runQmakeQuery(const FilePath &binary, const Environment &env, 
 
     QtcProcess process;
     process.setEnvironment(env);
-    process.setCommand({binary, {"-query"}});
+    CommandLine cmd = {binary, {"-query"}};
+    process.setCommand(cmd);
     process.start();
 
     if (!process.waitForFinished()) {

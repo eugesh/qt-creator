@@ -162,7 +162,7 @@ static ProjectExplorer::Macros gccPredefinedMacros(const FilePath &gcc,
                                                    const Environment &env)
 {
     QStringList arguments = args;
-    arguments << "-";
+    // arguments << "-";
 
     ProjectExplorer::Macros  predefinedMacros = Macro::toMacros(runGcc(gcc, arguments, env).toUtf8());
     // Sanity check in case we get an error message instead of real output:
