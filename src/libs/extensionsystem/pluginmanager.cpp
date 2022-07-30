@@ -37,6 +37,7 @@
 #include <QDir>
 #include <QEventLoop>
 #include <QFile>
+#include <QFileInfo>
 #include <QGuiApplication>
 #include <QLibrary>
 #include <QLibraryInfo>

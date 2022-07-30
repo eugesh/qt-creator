@@ -43,10 +43,12 @@
 
 #include <mimemagicrule_p.h>
 #include <mimetype.h>
+#include <QFileInfo>
 
 namespace Utils {
 
 class FilePath;
+// class QFileInfo;
 
 // Wrapped QMimeDataBase functions
 QTCREATOR_UTILS_EXPORT MimeType mimeTypeForName(const QString &nameOrAlias);
@@ -57,6 +59,7 @@ QTCREATOR_UTILS_EXPORT MimeType mimeTypeForFile(const QString &fileName,
                                                 MimeMatchMode mode = MimeMatchMode::MatchDefault);
 QTCREATOR_UTILS_EXPORT MimeType mimeTypeForFile(const FilePath &filePath,
                                                 MimeMatchMode mode = MimeMatchMode::MatchDefault);
+QTCREATOR_UTILS_EXPORT MimeType mimeTypeForFile(const QFileInfo &fileInfo, MimeMatchMode mode);
 QTCREATOR_UTILS_EXPORT QList<MimeType> mimeTypesForFileName(const QString &fileName);
 QTCREATOR_UTILS_EXPORT MimeType mimeTypeForData(const QByteArray &data);
 QTCREATOR_UTILS_EXPORT QList<MimeType> allMimeTypes();
